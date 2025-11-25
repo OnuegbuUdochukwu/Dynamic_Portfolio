@@ -27,7 +27,10 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     });
 
     const login = () => {
-        window.location.href = `${import.meta.env.VITE_API_BASE || 'http://localhost:8080'}/oauth2/authorization/github`;
+        console.log('Login function called!');
+        const url = `${import.meta.env.VITE_API_BASE || 'http://localhost:8080'}/oauth2/authorization/github`;
+        console.log('Redirecting to:', url);
+        window.location.href = url;
     };
 
     const logout = async () => {

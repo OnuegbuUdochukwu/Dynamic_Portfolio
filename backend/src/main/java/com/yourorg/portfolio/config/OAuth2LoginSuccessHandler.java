@@ -32,6 +32,6 @@ public class OAuth2LoginSuccessHandler implements AuthenticationSuccessHandler {
             Authentication authentication) throws IOException, ServletException {
         // Temporarily simplified for debugging
         System.out.println("OAuth2 Login Success!");
-        response.sendRedirect("http://localhost:5174"); // Frontend URL
+        response.sendRedirect("http://localhost:5173"); // Frontend URL
     }
 }
