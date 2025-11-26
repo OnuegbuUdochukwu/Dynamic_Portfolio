@@ -26,7 +26,8 @@ public class SecurityConfig {
                 .cors(cors -> cors.configurationSource(corsConfigurationSource()))
                 .csrf(csrf -> csrf.disable()) // Disable CSRF for simplicity in MVP (enable in prod with Cookie)
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers("/api/v1/auth/**", "/login/**", "/oauth2/**", "/api/v1/portfolio/**")
+                        .requestMatchers("/api/v1/auth/**", "/login/**", "/oauth2/**", "/api/v1/portfolio/**",
+                                "/actuator/**")
                         .permitAll()
                         .anyRequest().authenticated())
                 .oauth2Login(oauth2 -> oauth2
