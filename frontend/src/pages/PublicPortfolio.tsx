@@ -17,7 +17,7 @@ export default function PublicPortfolio() {
     const { data: profile, isLoading, error } = useQuery<PublicProfile>({
         queryKey: ['public-portfolio', username],
         queryFn: async () => {
-            const { data } = await api.get(`/api/v1/portfolio/${username}`);
+            const { data } = await api.get(`/portfolio/${username}`);
             return data;
         },
         enabled: !!username,
