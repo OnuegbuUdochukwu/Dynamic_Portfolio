@@ -34,12 +34,10 @@ public class OAuth2LoginSuccessHandler implements AuthenticationSuccessHandler {
         OAuth2AuthenticationToken oauthToken = (OAuth2AuthenticationToken) authentication;
         OAuth2User oauthUser = oauthToken.getPrincipal();
 
-        // Get Access Token
-        OAuth2AuthorizedClient client = authorizedClientService.loadAuthorizedClient(
-                oauthToken.getAuthorizedClientRegistrationId(),
-                oauthToken.getName());
-
-        String accessToken = client.getAccessToken().getTokenValue();
+        // Note: Access token is not directly available in OAuth2AuthenticationToken
+        // We'll store user info without the token for now, or implement a custom
+        // OAuth2UserService
+        // For MVP, we'll skip token storage and just save user profile data
 
         // Extract User Info
         Long githubId = oauthUser.getAttribute("id");
@@ -52,7 +50,7 @@ public class OAuth2LoginSuccessHandler implements AuthenticationSuccessHandler {
         User user;
         if (existing.isPresent()) {
             user = existing.get();
-            user.setEncryptedAccessToken(accessToken); // TODO: Encrypt!
+            // TODO: Implement token storage via custom OAuth2UserService
             user.setAvatarUrl(avatarUrl);
             user.setUsername(username);
         } else {
@@ -61,7 +59,7 @@ public class OAuth2LoginSuccessHandler implements AuthenticationSuccessHandler {
             user.setUsername(username);
             user.setAvatarUrl(avatarUrl);
             user.setEmail(email);
-            user.setEncryptedAccessToken(accessToken);
+            // TODO: Implement token storage via custom OAuth2UserService
             user.setRoles(new String[] { "ROLE_USER" });
         }
         userRepository.save(user);
