@@ -28,7 +28,8 @@ public class RecommendationController {
         if (principal == null) {
             return ResponseEntity.status(401).build();
         }
-        Long githubId = principal.getAttribute("id");
+        Object idObj = principal.getAttribute("id");
+        Long githubId = idObj instanceof Number ? ((Number) idObj).longValue() : Long.valueOf(idObj.toString());
         User user = userRepository.findByGithubId(githubId)
                 .orElseThrow(() -> new RuntimeException("User not found"));
 
