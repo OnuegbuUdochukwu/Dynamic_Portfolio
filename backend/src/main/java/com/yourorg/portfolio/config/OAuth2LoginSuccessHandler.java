@@ -50,6 +50,13 @@ public class OAuth2LoginSuccessHandler implements AuthenticationSuccessHandler {
 
         System.out.println("DEBUG: User info extracted: " + username + ", " + githubId);
 
+        // Extract Access Token
+        OAuth2AuthorizedClient client = authorizedClientService.loadAuthorizedClient(
+                oauthToken.getAuthorizedClientRegistrationId(),
+                oauthToken.getName());
+        String accessToken = client.getAccessToken().getTokenValue();
+        System.out.println("DEBUG: Access Token extracted: " + (accessToken != null ? "Yes" : "No"));
+
         // Save/Update User
         try {
             Optional<User> existing = userRepository.findByGithubId(githubId);
@@ -60,6 +67,7 @@ public class OAuth2LoginSuccessHandler implements AuthenticationSuccessHandler {
                 // TODO: Implement token storage via custom OAuth2UserService
                 user.setAvatarUrl(avatarUrl);
                 user.setUsername(username);
+                user.setEncryptedAccessToken(accessToken);
             } else {
                 System.out.println("DEBUG: Creating new user");
                 user = new User();
@@ -67,6 +75,7 @@ public class OAuth2LoginSuccessHandler implements AuthenticationSuccessHandler {
                 user.setUsername(username);
                 user.setAvatarUrl(avatarUrl);
                 user.setEmail(email);
+                user.setEncryptedAccessToken(accessToken);
                 // TODO: Implement token storage via custom OAuth2UserService
                 user.setRoles(new String[] { "ROLE_USER" });
             }
