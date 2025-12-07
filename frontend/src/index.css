@@ -17,37 +17,39 @@
     /* Radiant Warmth - Light Mode */
     --background: 36 100% 97%;
     /* Warm Cream #FFF9F0 */
-    --foreground: 24 20% 15%;
-    /* Dark Brown/Charcoal #2D241E */
+    --foreground: 24 25% 10%;
+    /* Deep Chocolate/Charcoal #201A16 - Darker for readability */
 
     --card: 0 0% 100%;
     /* White #FFFFFF */
-    --card-foreground: 24 20% 15%;
+    --card-foreground: 24 25% 10%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 24 20% 15%;
+    --popover-foreground: 24 25% 10%;
 
-    --primary: 25 100% 50%;
-    /* Energy Orange #FF6B00 */
+    --primary: 25 95% 45%;
+    /* Deep Energy Orange #E05E00 - Dark enough for white text? Borderline. */
     --primary-foreground: 36 100% 97%;
 
-    --secondary: 50 100% 50%;
-    /* Sunshine Yellow #FFD600 */
-    --secondary-foreground: 24 20% 15%;
+    --secondary: 48 100% 50%;
+    /* Golden Yellow #FFCC00 - Slightly warmer/darker than #FFD600 */
+    --secondary-foreground: 24 25% 10%;
 
     --muted: 36 30% 90%;
-    --muted-foreground: 24 15% 40%;
+    --muted-foreground: 24 15% 35%;
+    /* Sharper muted text */
 
-    --accent: 345 100% 50%;
-    /* Power Red #FF0040 */
+    --accent: 345 90% 45%;
+    /* Power Red - Slightly darker */
     --accent-foreground: 36 100% 97%;
 
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 98%;
 
-    --border: 36 20% 85%;
-    --input: 36 20% 85%;
-    --ring: 25 100% 50%;
+    --border: 36 20% 80%;
+    /* Slightly darker border for definition */
+    --input: 36 20% 80%;
+    --ring: 25 95% 45%;
 
     --radius: 0.5rem;
   }

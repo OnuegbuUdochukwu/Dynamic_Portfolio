@@ -11,10 +11,10 @@ export default {
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
 
-        // Radiant Warmth Palette
-        energy: "#FF6B00",
-        sunshine: "#FFD600",
-        power: "#FF0040",
+        // Radiant Warmth Palette - Refined for Readability
+        energy: "#E05E00",   // Deep Energy Orange
+        sunshine: "#FFCC00", // Golden Yellow
+        power: "#D90B3E",    // Deep Power Red
         espresso: "#1A1510",
         cream: "#FFF9F0",
 
