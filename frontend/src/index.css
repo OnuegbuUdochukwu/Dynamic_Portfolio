@@ -14,100 +14,45 @@
     --card-foreground: 60 3% 12%;
     /* #20201E */
 
-    /* Popovers */
+    /* Radiant Warmth - Light Mode */
+    --background: 36 100% 97%;
+    /* Warm Cream #FFF9F0 */
+    --foreground: 24 20% 15%;
+    /* Dark Brown/Charcoal #2D241E */
+
+    --card: 0 0% 100%;
+    /* White #FFFFFF */
+    --card-foreground: 24 20% 15%;
+
     --popover: 0 0% 100%;
-    /* #FFFFFF */
-    --popover-foreground: 60 3% 12%;
-    /* #20201E */
+    --popover-foreground: 24 20% 15%;
 
-    /* Primary - Deep Forest Green */
-    --primary: 149 36% 17%;
-    /* #1B3A2A */
-    --primary-foreground: 0 0% 100%;
-    /* #FFFFFF */
+    --primary: 25 100% 50%;
+    /* Energy Orange #FF6B00 */
+    --primary-foreground: 36 100% 97%;
 
-    /* Secondary - Muted Olive / Dark Borders */
-    --secondary: 43 8% 17%;
-    /* #2E2C27 */
-    --secondary-foreground: 43 20% 88%;
-    /* #E7E3D9 */
+    --secondary: 50 100% 50%;
+    /* Sunshine Yellow #FFD600 */
+    --secondary-foreground: 24 20% 15%;
 
-    /* Muted */
-    --muted: 39 27% 90%;
-    /* Slightly darker than background for contrast */
-    --muted-foreground: 43 11% 62%;
-    /* #A9A393 */
+    --muted: 36 30% 90%;
+    --muted-foreground: 24 15% 40%;
 
-    /* Accent - Warm Gold */
-    --accent: 43 58% 50%;
-    /* #CBA135 */
-    --accent-foreground: 149 36% 17%;
-    /* #1B3A2A */
+    --accent: 345 100% 50%;
+    /* Power Red #FF0040 */
+    --accent-foreground: 36 100% 97%;
 
-    /* Destructive - Clay Red */
-    --destructive: 4 52% 42%;
-    /* #A23B33 */
-    --destructive-foreground: 0 0% 100%;
-    /* #FFFFFF */
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
 
-    /* Borders & Inputs */
-    --border: 43 8% 17%;
-    /* #2E2C27 */
-    --input: 43 8% 17%;
-    /* #2E2C27 */
-    --ring: 43 58% 50%;
-    /* #CBA135 */
+    --border: 36 20% 85%;
+    --input: 36 20% 85%;
+    --ring: 25 100% 50%;
 
     --radius: 0.5rem;
   }
 
   .dark {
-    /* Dark Mode Base */
-    --background: 60 8% 5%;
-    /* #0E0E0C */
-    --foreground: 43 20% 88%;
-    /* #E7E3D9 */
-
-    /* Cards */
-    --card: 60 4% 10%;
-    /* #1A1A18 */
-    --card-foreground: 43 20% 88%;
-    /* #E7E3D9 */
-
-    /* Popovers */
-    --popover: 60 4% 10%;
-    /* #1A1A18 */
-    --popover-foreground: 43 20% 88%;
-    /* #E7E3D9 */
-
-    /* Primary */
-    --primary: 149 36% 17%;
-    /* #1B3A2A */
-    --primary-foreground: 0 0% 100%;
-    /* #FFFFFF */
-
-    /* Secondary */
-    --secondary: 43 8% 17%;
-    /* #2E2C27 */
-    --secondary-foreground: 43 20% 88%;
-    /* #E7E3D9 */
-
-    /* Muted */
-    --muted: 43 8% 17%;
-    /* #2E2C27 */
-    --muted-foreground: 43 11% 62%;
-    /* #A9A393 */
-
-    /* Accent */
-    --accent: 43 58% 50%;
-    /* #CBA135 */
-    --accent-foreground: 149 36% 17%;
-    /* #1B3A2A */
-
-    /* Destructive */
-    --destructive: 4 52% 42%;
-    /* #A23B33 */
-    --destructive-foreground: 0 0% 100%;
     /* #FFFFFF */
 
     /* Borders & Inputs */

@@ -103,7 +103,7 @@ function CareersTab({ data }: { data: RecommendationResponse }) {
     return (
         <div className="space-y-6">
             {/* Career Paths */}
-            <div className="bg-gradient-to-br from-forest via-olive to-gold rounded-xl p-6 text-white shadow-lg">
+            <div className="bg-gradient-to-br from-energy via-power to-sunshine rounded-xl p-6 text-white shadow-lg">
                 <div className="flex items-center gap-2 mb-4">
                     <Sparkles className="w-5 h-5 text-white" />
                     <h3 className="font-bold text-lg">Recommended Career Paths</h3>
@@ -113,7 +113,7 @@ function CareersTab({ data }: { data: RecommendationResponse }) {
                         <div key={path.title} className="bg-black/20 backdrop-blur-sm p-4 rounded-lg border border-white/10">
                             <div className="flex justify-between items-start mb-2">
                                 <div className="flex items-center gap-2">
-                                    {index === 0 && <Award className="w-4 h-4 text-gold" />}
+                                    {index === 0 && <Award className="w-4 h-4 text-sunshine" />}
                                     <span className="font-bold">{path.title}</span>
                                 </div>
                                 <div className="flex items-center gap-2">
@@ -121,7 +121,7 @@ function CareersTab({ data }: { data: RecommendationResponse }) {
                                         Match: {Math.round(path.score * 100)}%
                                     </span>
                                     {path.confidence > 0.5 && (
-                                        <span className="text-xs bg-olive/80 text-white px-2 py-1 rounded">
+                                        <span className="text-xs bg-white/20 text-white px-2 py-1 rounded">
                                             High Confidence
                                         </span>
                                     )}
@@ -153,18 +153,18 @@ function CareersTab({ data }: { data: RecommendationResponse }) {
             {/* Skill Gaps */}
             {data.skillGaps && data.skillGaps.length > 0 && (
                 <div className="bg-card rounded-xl p-6 shadow-md border border-border">
-                    <div className="flex items-center gap-2 mb-4 text-gold">
+                    <div className="flex items-center gap-2 mb-4 text-energy">
                         <Target className="w-5 h-5" />
                         <h3 className="font-bold text-lg text-foreground">Skills to Develop</h3>
                     </div>
                     <div className="space-y-4">
                         {data.skillGaps.map((gap) => (
-                            <div key={gap.career} className="p-4 bg-gold/5 rounded-lg border border-gold/10">
+                            <div key={gap.career} className="p-4 bg-energy/5 rounded-lg border border-energy/10">
                                 <div className="flex items-center justify-between mb-3">
                                     <p className="font-medium text-foreground">
-                                        For <span className="text-gold">{gap.career}</span>
+                                        For <span className="text-energy">{gap.career}</span>
                                     </p>
-                                    <span className="text-xs bg-gold/20 text-gold px-2 py-1 rounded-full">
+                                    <span className="text-xs bg-energy/10 text-energy px-2 py-1 rounded-full">
                                         {gap.completionPercentage}% Complete
                                     </span>
                                 </div>
@@ -223,7 +223,7 @@ function CareersTab({ data }: { data: RecommendationResponse }) {
                                 </div>
                                 <div className="flex items-center gap-2">
                                     <span className={`text-xs px-2 py-1 rounded ${tech.jobRelevance === 'Very High'
-                                        ? 'bg-olive/20 text-olive'
+                                        ? 'bg-energy/20 text-energy'
                                         : 'bg-muted text-muted-foreground'
                                         }`}>
                                         {tech.jobRelevance}
@@ -256,9 +256,9 @@ function SkillsTab({ data }: { data: RecommendationResponse }) {
 
             {/* Strengths */}
             {skillAnalysis?.strengths && skillAnalysis.strengths.length > 0 && (
-                <div className="bg-gradient-to-br from-forest to-olive rounded-xl p-6 text-white">
+                <div className="bg-gradient-to-br from-energy to-power rounded-xl p-6 text-white">
                     <div className="flex items-center gap-2 mb-4">
-                        <Award className="w-5 h-5 text-gold" />
+                        <Award className="w-5 h-5 text-sunshine" />
                         <h3 className="font-bold text-lg">Your Strengths</h3>
                     </div>
                     <div className="grid gap-3">
@@ -297,10 +297,10 @@ function SkillsTab({ data }: { data: RecommendationResponse }) {
                                 <div className="h-2 bg-muted rounded-full overflow-hidden">
                                     <div
                                         className={`h-full rounded-full transition-all duration-500 ${skill.proficiency >= 70
-                                            ? 'bg-forest'
+                                            ? 'bg-energy'
                                             : skill.proficiency >= 40
-                                                ? 'bg-olive'
-                                                : 'bg-gold'
+                                                ? 'bg-sunshine'
+                                                : 'bg-power'
                                             }`}
                                         style={{ width: `${skill.proficiency}%` }}
                                     />
@@ -314,16 +314,16 @@ function SkillsTab({ data }: { data: RecommendationResponse }) {
             {/* Areas for Improvement */}
             {skillAnalysis?.weaknesses && skillAnalysis.weaknesses.length > 0 && (
                 <div className="bg-card rounded-xl p-6 shadow-md border border-border">
-                    <div className="flex items-center gap-2 mb-4 text-gold">
+                    <div className="flex items-center gap-2 mb-4 text-power">
                         <AlertTriangle className="w-5 h-5" />
                         <h3 className="font-bold text-lg text-foreground">Areas to Improve</h3>
                     </div>
                     <div className="space-y-3">
                         {skillAnalysis.weaknesses.map((weakness) => (
-                            <div key={weakness.skill} className="p-3 bg-gold/5 rounded-lg border border-gold/10">
+                            <div key={weakness.skill} className="p-3 bg-power/5 rounded-lg border border-power/10">
                                 <p className="font-medium text-foreground">{weakness.skill}</p>
                                 <p className="text-sm text-muted-foreground mt-1">{weakness.reason}</p>
-                                <p className="text-sm text-olive mt-2">
+                                <p className="text-sm text-energy mt-2">
                                     💡 {weakness.suggestion}
                                 </p>
                             </div>
@@ -340,7 +340,7 @@ function ProjectsTab({ data }: { data: RecommendationResponse }) {
         <div className="space-y-6">
             {/* Project Ideas */}
             <div className="bg-card rounded-xl p-6 shadow-md border border-border">
-                <div className="flex items-center gap-2 mb-4 text-olive">
+                <div className="flex items-center gap-2 mb-4 text-energy">
                     <Code className="w-5 h-5" />
                     <h3 className="font-bold text-lg text-foreground">Recommended Projects</h3>
                 </div>
@@ -356,10 +356,10 @@ function ProjectsTab({ data }: { data: RecommendationResponse }) {
                                     </div>
                                     <div className="flex flex-col items-end gap-1">
                                         <span className={`text-xs px-2 py-0.5 rounded ${project.difficulty === 'Beginner'
-                                            ? 'bg-olive/20 text-olive'
+                                            ? 'bg-energy/20 text-energy'
                                             : project.difficulty === 'Intermediate'
-                                                ? 'bg-primary/20 text-primary'
-                                                : 'bg-gold/20 text-gold'
+                                                ? 'bg-sunshine/20 text-sunshine-dark'
+                                                : 'bg-power/20 text-power'
                                             }`}>
                                             {project.difficulty}
                                         </span>
@@ -372,12 +372,12 @@ function ProjectsTab({ data }: { data: RecommendationResponse }) {
 
                                 <div className="flex flex-wrap gap-1 mb-3">
                                     {project.skillsYouHave?.map(s => (
-                                        <span key={s} className="text-[10px] px-1.5 py-0.5 bg-olive/10 text-olive rounded border border-olive/20">
+                                        <span key={s} className="text-[10px] px-1.5 py-0.5 bg-energy/10 text-energy rounded border border-energy/20">
                                             ✓ {s}
                                         </span>
                                     ))}
                                     {project.skillsToLearn?.map(s => (
-                                        <span key={s} className="text-[10px] px-1.5 py-0.5 bg-gold/10 text-gold rounded border border-gold/20">
+                                        <span key={s} className="text-[10px] px-1.5 py-0.5 bg-sunshine/20 text-sunshine-dark rounded border border-sunshine/20">
                                             + {s}
                                         </span>
                                     ))}
@@ -397,7 +397,7 @@ function ProjectsTab({ data }: { data: RecommendationResponse }) {
                                 )}
 
                                 <div className="flex items-center justify-between mt-3 pt-3 border-t border-border">
-                                    <p className="text-xs text-olive italic">
+                                    <p className="text-xs text-energy italic">
                                         {project.reason}
                                     </p>
                                     <span className="text-xs bg-primary/10 text-primary px-2 py-1 rounded">
@@ -477,10 +477,10 @@ function LearningTab({ data }: { data: RecommendationResponse }) {
                                     </div>
                                     <div className="flex flex-col items-end gap-1">
                                         <span className={`text-xs px-2 py-0.5 rounded ${resource.type === 'Certification'
-                                            ? 'bg-gold/20 text-gold'
+                                            ? 'bg-power/20 text-power'
                                             : resource.type === 'Specialization'
-                                                ? 'bg-olive/20 text-olive'
-                                                : 'bg-primary/20 text-primary'
+                                                ? 'bg-energy/20 text-energy'
+                                                : 'bg-sunshine/20 text-sunshine-dark'
                                             }`}>
                                             {resource.type}
                                         </span>
@@ -501,10 +501,10 @@ function LearningTab({ data }: { data: RecommendationResponse }) {
 
                                 <div className="flex items-center justify-between mt-3 pt-3 border-t border-border">
                                     <span className={`text-xs ${resource.difficulty === 'Beginner'
-                                        ? 'text-olive'
+                                        ? 'text-energy'
                                         : resource.difficulty === 'Intermediate'
-                                            ? 'text-primary'
-                                            : 'text-gold'
+                                            ? 'text-sunshine-dark'
+                                            : 'text-power'
                                         }`}>
                                         {resource.difficulty}
                                     </span>
