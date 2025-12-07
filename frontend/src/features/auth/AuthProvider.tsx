@@ -1,5 +1,5 @@
 import { createContext, useContext, type ReactNode } from 'react';
-import { useQuery } from '@tanstack/react-query';
+import { useQuery, useQueryClient } from '@tanstack/react-query';
 import { api } from '../../services/api';
 import type { User } from '../../types';
 
@@ -13,6 +13,7 @@ interface AuthContextType {
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
 
 export function AuthProvider({ children }: { children: ReactNode }) {
+    const queryClient = useQueryClient();
     const { data: user, isLoading } = useQuery<User>({
         queryKey: ['user'],
         queryFn: async () => {
@@ -27,14 +28,17 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     });
 
     const login = () => {
-        console.log('Login function called!');
-        const url = `${import.meta.env.VITE_API_BASE || 'http://localhost:8080'}/oauth2/authorization/github`;
-        console.log('Redirecting to:', url);
+        const url = `${import.meta.env.VITE_API_BASE?.replace('/api/v1', '') || 'http://localhost:8080'}/oauth2/authorization/github`;
         window.location.href = url;
     };
 
     const logout = async () => {
-        await api.post('/auth/logout');
+        try {
+            await api.post('/auth/logout');
+        } catch (error) {
+            console.error('Logout failed', error);
+        }
+        queryClient.clear();
         window.location.href = '/login';
     };
 

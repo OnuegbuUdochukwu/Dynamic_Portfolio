@@ -39,7 +39,15 @@ public class SecurityConfig {
                                                 .permitAll()
                                                 .anyRequest().authenticated())
                                 .oauth2Login(oauth2 -> oauth2
-                                                .successHandler(successHandler));
+                                                .successHandler(successHandler))
+                                .logout(logout -> logout
+                                                .logoutUrl("/api/v1/auth/logout")
+                                                .logoutSuccessHandler((request, response, authentication) -> {
+                                                        response.setStatus(200);
+                                                })
+                                                .invalidateHttpSession(true)
+                                                .clearAuthentication(true)
+                                                .deleteCookies("JSESSIONID"));
 
                 return http.build();
         }
