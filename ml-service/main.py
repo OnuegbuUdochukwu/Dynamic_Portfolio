@@ -195,7 +195,7 @@ async def get_recommendations(profile: UserProfile):
         # Convert Pydantic models to dict
         profile_dict = {
             "user_id": profile.user_id,
-            "repos": [repo.model_dump() for repo in profile.repos]
+            "repos": [repo.dict() for repo in profile.repos]
         }
         
         recommendations = recommender.generate_recommendations(profile_dict)
@@ -240,7 +240,7 @@ async def analyze_skills(profile: UserProfile):
     try:
         profile_dict = {
             "user_id": profile.user_id,
-            "repos": [repo.model_dump() for repo in profile.repos]
+            "repos": [repo.dict() for repo in profile.repos]
         }
         
         recommendations = recommender.generate_recommendations(profile_dict)
@@ -260,7 +260,7 @@ async def analyze_careers(profile: UserProfile):
     try:
         profile_dict = {
             "user_id": profile.user_id,
-            "repos": [repo.model_dump() for repo in profile.repos]
+            "repos": [repo.dict() for repo in profile.repos]
         }
         
         recommendations = recommender.generate_recommendations(profile_dict)

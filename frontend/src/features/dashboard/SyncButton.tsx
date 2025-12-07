@@ -21,7 +21,7 @@ export function SyncButton() {
             onClick={() => mutate()}
             disabled={isPending}
             className={cn(
-                "flex items-center gap-2 px-4 py-2 bg-gray-900 dark:bg-white text-white dark:text-gray-900 rounded-md font-medium hover:opacity-90 transition-opacity disabled:opacity-50",
+                "flex items-center gap-2 px-4 py-2 bg-primary text-primary-foreground rounded-md font-medium hover:opacity-90 transition-opacity disabled:opacity-50",
                 isPending && "cursor-not-allowed"
             )}
         >
