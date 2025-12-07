@@ -110,32 +110,32 @@ function CareersTab({ data }: { data: RecommendationResponse }) {
                 </div>
                 <div className="space-y-3">
                     {data.careerPaths?.map((path, index) => (
-                        <div key={path.title} className="bg-black/20 backdrop-blur-sm p-4 rounded-lg border border-white/10">
+                        <div key={path.title} className="bg-card text-card-foreground p-4 rounded-lg shadow-sm">
                             <div className="flex justify-between items-start mb-2">
                                 <div className="flex items-center gap-2">
-                                    {index === 0 && <Award className="w-4 h-4 text-sunshine" />}
+                                    {index === 0 && <Award className="w-4 h-4 text-energy" />}
                                     <span className="font-bold">{path.title}</span>
                                 </div>
                                 <div className="flex items-center gap-2">
-                                    <span className="text-xs bg-white/20 px-2 py-1 rounded">
+                                    <span className="text-xs bg-muted text-muted-foreground px-2 py-1 rounded">
                                         Match: {Math.round(path.score * 100)}%
                                     </span>
                                     {path.confidence > 0.5 && (
-                                        <span className="text-xs bg-white/20 text-white px-2 py-1 rounded">
+                                        <span className="text-xs bg-energy/10 text-energy px-2 py-1 rounded">
                                             High Confidence
                                         </span>
                                     )}
                                 </div>
                             </div>
-                            <p className="text-sm opacity-90 mb-3">{path.description}</p>
+                            <p className="text-sm text-muted-foreground mb-3">{path.description}</p>
                             <div className="flex flex-wrap gap-2 mb-2">
                                 {path.matchedSkills?.slice(0, 5).map(skill => (
-                                    <span key={skill} className="text-xs bg-white/20 px-2 py-0.5 rounded-full">
+                                    <span key={skill} className="text-xs bg-muted text-muted-foreground px-2 py-0.5 rounded-full">
                                         {skill}
                                     </span>
                                 ))}
                             </div>
-                            <div className="flex items-center gap-4 text-xs opacity-80">
+                            <div className="flex items-center gap-4 text-xs text-muted-foreground">
                                 <span className="flex items-center gap-1">
                                     <Briefcase className="w-3 h-3" />
                                     {path.salaryRange}
@@ -263,19 +263,19 @@ function SkillsTab({ data }: { data: RecommendationResponse }) {
                     </div>
                     <div className="grid gap-3">
                         {skillAnalysis.strengths.map((strength, index) => (
-                            <div key={strength.skill} className="flex items-center justify-between bg-black/20 backdrop-blur-sm p-3 rounded-lg border border-white/10">
+                            <div key={strength.skill} className="flex items-center justify-between bg-card text-card-foreground p-3 rounded-lg shadow-sm">
                                 <div className="flex items-center gap-3">
-                                    <span className="w-6 h-6 bg-white/20 rounded-full flex items-center justify-center text-sm font-bold">
+                                    <span className="w-6 h-6 bg-muted text-muted-foreground rounded-full flex items-center justify-center text-sm font-bold">
                                         {index + 1}
                                     </span>
                                     <div>
                                         <p className="font-semibold">{strength.skill}</p>
-                                        <p className="text-xs opacity-80">{strength.reposCount} repositories</p>
+                                        <p className="text-xs text-muted-foreground">{strength.reposCount} repositories</p>
                                     </div>
                                 </div>
                                 <div className="text-right">
                                     <p className="font-bold text-lg">{Math.round(strength.score)}</p>
-                                    <p className="text-xs opacity-80">score</p>
+                                    <p className="text-xs text-muted-foreground">score</p>
                                 </div>
                             </div>
                         ))}
