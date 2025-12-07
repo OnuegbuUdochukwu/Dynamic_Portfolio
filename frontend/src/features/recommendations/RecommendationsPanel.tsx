@@ -103,14 +103,14 @@ function CareersTab({ data }: { data: RecommendationResponse }) {
     return (
         <div className="space-y-6">
             {/* Career Paths */}
-            <div className="bg-gradient-to-br from-energy via-power to-sunshine rounded-xl p-6 text-white shadow-lg">
+            <div className="bg-card rounded-xl p-6 shadow-sm border border-energy">
                 <div className="flex items-center gap-2 mb-4">
-                    <Sparkles className="w-5 h-5 text-white" />
-                    <h3 className="font-bold text-lg">Recommended Career Paths</h3>
+                    <Sparkles className="w-5 h-5 text-energy" />
+                    <h3 className="font-bold text-lg text-foreground">Recommended Career Paths</h3>
                 </div>
                 <div className="space-y-3">
                     {data.careerPaths?.map((path, index) => (
-                        <div key={path.title} className="bg-card text-card-foreground p-4 rounded-lg shadow-sm">
+                        <div key={path.title} className="bg-white border border-border rounded-lg p-4 shadow-sm hover:shadow-md transition-shadow">
                             <div className="flex justify-between items-start mb-2">
                                 <div className="flex items-center gap-2">
                                     {index === 0 && <Award className="w-4 h-4 text-energy" />}
@@ -256,14 +256,14 @@ function SkillsTab({ data }: { data: RecommendationResponse }) {
 
             {/* Strengths */}
             {skillAnalysis?.strengths && skillAnalysis.strengths.length > 0 && (
-                <div className="bg-gradient-to-br from-energy to-power rounded-xl p-6 text-white">
+                <div className="bg-card rounded-xl p-6 shadow-md border border-energy/50">
                     <div className="flex items-center gap-2 mb-4">
-                        <Award className="w-5 h-5 text-sunshine" />
-                        <h3 className="font-bold text-lg">Your Strengths</h3>
+                        <Award className="w-5 h-5 text-energy" />
+                        <h3 className="font-bold text-lg text-foreground">Your Strengths</h3>
                     </div>
                     <div className="grid gap-3">
                         {skillAnalysis.strengths.map((strength, index) => (
-                            <div key={strength.skill} className="flex items-center justify-between bg-card text-card-foreground p-3 rounded-lg shadow-sm">
+                            <div key={strength.skill} className="flex items-center justify-between bg-white p-3 rounded-lg border border-border">
                                 <div className="flex items-center gap-3">
                                     <span className="w-6 h-6 bg-muted text-muted-foreground rounded-full flex items-center justify-center text-sm font-bold">
                                         {index + 1}
