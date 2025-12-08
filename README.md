@@ -102,6 +102,28 @@ npm run dev
    - **Projects**: Ideas to build next based on your profile.
    - **Learning**: Curated resources to fill skill gaps.
 
+## 🐳 Deployment
+
+The application is fully containerized and ready for deployment using Docker Compose.
+
+### Production Deployment
+
+1. **Build and Start Services**:
+   ```bash
+   docker-compose -f docker-compose.prod.yml up -d --build
+   ```
+
+2. **Access the Application**:
+   - Frontend: `http://localhost:3000`
+   - Backend API: `http://localhost:8080`
+   - ML Service: `http://localhost:8000`
+
+### Environment Variables
+Ensure you set the following environment variables in your deployment environment or a `.env` file:
+- `GITHUB_CLIENT_ID`
+- `GITHUB_CLIENT_SECRET`
+- `POSTGRES_PASSWORD` (optional, defaults to `password`)
+
 ## 🤝 Contributing
 
 1. Fork the repository.
